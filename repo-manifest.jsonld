@@ -8,7 +8,7 @@
     {
       "@id": "https://repolex.ai/r/scverse/repo-health/commit/caf0ff21e96170472ebc2c471c92a0f66a11916c",
       "git:hexsha": "caf0ff21e96170472ebc2c471c92a0f66a11916c",
-      "repolex:parseStatus": "metadata_complete"
+      "repolex:parseStatus": "ast_complete"
     }
   ]
 }
