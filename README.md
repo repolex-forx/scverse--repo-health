@@ -1,1 +1,134 @@
-Initializing
+# Repolex Knowledge Graph of scverse/repo-health
+
+RDF knowledge graph data for [scverse/repo-health](https://github.com/scverse/repo-health), parsed by [repolex](https://repolex.ai).
+
+> **Note**: This data is experimental and subject to change without notice.
+
+## How to use this data
+
+The easiest way to get started is to install the [rlex](https://github.com/repolex-ai/rlex) query tool:
+
+```bash
+cargo install --git https://github.com/repolex-ai/rlex
+```
+
+Verify the install:
+
+```bash
+rlex --help
+```
+
+**rlex is designed to be used primarily by LLMs in a terminal.** Start up your favorite AI assistant and ask it to use rlex. It handles the SPARQL — you just ask questions in plain English.
+
+To load this repo's data:
+
+```bash
+rlex download scverse/repo-health
+```
+
+Consult `rlex --help` for other options, including SPARQL queries, HTTP server, and interactive visualization.
+
+## Data structure
+
+All data is stored as gzip-compressed [N-Quads](https://www.w3.org/TR/n-quads/) (`.nq.gz`), a standard RDF format that can be loaded into any triplestore or graph database.
+
+```
+.
+├── aggregate
+│   ├── ast
+│   │   └── caf0ff21e96170472ebc2c471c92a0f66a11916c
+│   │       └── chunk-001.nq.gz
+│   └── repolex
+│       └── caf0ff21e96170472ebc2c471c92a0f66a11916c
+│           └── chunk-001.nq.gz
+├── blob
+│   ├── 06c10eaf6b8acd3cb21fd6cee66d8630ee46af52.nq.gz
+│   ├── 0b7d470b86c4f11f522feab94804c77647c2d972.nq.gz
+│   ├── 144e2fd544855029afd19e4781d4577d5dc915c6.nq.gz
+│   ├── 17304c08c934125295dd4b2c8cc1d2cf00c258d8.nq.gz
+│   ├── 1c22715d11eddba9d2b0cdddf73dbc4e5d8e55d9.nq.gz
+│   ├── 1d4f2b265eca17dd4977827a6168dfe96fc401bf.nq.gz
+│   ├── 2572877d31682139c40692237696d4925313b35a.nq.gz
+│   ├── 260c94cda256cfa3d5d9d767339a2932a05dbdf2.nq.gz
+│   ├── 2c1f53cb73019e6a8760828cc55d9f4ac37198da.nq.gz
+│   ├── 2ebbf6e689ec1143fb987f6e096b9dc9dc764dce.nq.gz
+│   ├── 31696f70571f8fafa4b1549fb55c39e2b5ce1871.nq.gz
+│   ├── 34d184965c5cf7ef9c5679c7cf06cb0dfa5af146.nq.gz
+│   ├── 449a8765a782705af76037c7c62d2328a1104aaa.nq.gz
+│   ├── 47181aa67b86db54c479a48d64f5cab6815adb1a.nq.gz
+│   ├── 52ef3ba46f930274de40604cb93049e3c360482b.nq.gz
+│   ├── 57472fd9a1ddd81e6f131fbd5ccb208d497f3a8b.nq.gz
+│   ├── 59617ca116d28e6b8d6e7b0c777a34f4b253ac25.nq.gz
+│   ├── 5ee32c6f5391bcd699c341694b11357e64103656.nq.gz
+│   ├── 5f4dfd25760966dbf1cf86df27d014a7d02f4962.nq.gz
+│   ├── 65fdd6b3bdfdc4e523205dcb40426ca2a4e116fe.nq.gz
+│   ├── 6aed59a889ccdc18e2199346b10153cbeae2bfe4.nq.gz
+│   ├── 73c6e90aaeb8852d91d71b5e8e815fbd86a31f97.nq.gz
+│   ├── 740e072c4201c1408a429dcf0611d0fac4dc61ac.nq.gz
+│   ├── 758f84bc8d274c2b06fae562b6870b4ef5fb1dce.nq.gz
+│   ├── 76c263b9d4ead71af0189041d136e58dde8e0334.nq.gz
+│   ├── 796c0d193b483a7e736c5ac13709737ae6ee530f.nq.gz
+│   ├── 7c78ff17495d575cdbbd7491534d893f8add68eb.nq.gz
+│   ├── 807010e62d0800958253cbbf5277c75ed702409f.nq.gz
+│   ├── 846e6fc535688a4ecb2b7b3904733474a4d2be1e.nq.gz
+│   ├── 8b3e74037c6f83cb0d388fe4a3d939c901ad39e0.nq.gz
+│   ├── 8d7fb79ae1999845e9d0341a7389d99255315cdb.nq.gz
+│   ├── 8f2484e1a865bd021f4de5f315502c31591c8a17.nq.gz
+│   ├── 90c045d9d2318892e217480d8c3768d66d8574b7.nq.gz
+│   ├── 90c1f9f2db5713ebdec1aa59f48a78cb653de9f4.nq.gz
+│   ├── 994ff1c17e6dda421d39f2ec15c9ea48270484de.nq.gz
+│   ├── 99a28e1e071bb8b3a444418ead2095bca81e567b.nq.gz
+│   ├── 9ba1b4a6170e3d1b95ec2a633305d8132927d6d4.nq.gz
+│   ├── a38d03ec9d292c70bc232d4c46ad16d30a9c57db.nq.gz
+│   ├── a7837f40f9d9fe53c9e373c5c42a29728992e75a.nq.gz
+│   ├── b11bdb3154b82114790aa4f9acd43b667257bdac.nq.gz
+│   ├── b1d0ca4d6480a23f724e7fec0004137318ad006b.nq.gz
+│   ├── b2bd893d3209558040ee0537db194a8243b7459f.nq.gz
+│   ├── bc50ca5f12b51f7804bb198bf1362b05b03dbb76.nq.gz
+│   ├── bcedef65b55d412935a8289a7ce04aa006a22483.nq.gz
+│   ├── c9d1c02915101105baaf00749b806dbee66cca2f.nq.gz
+│   ├── cb8ae164c55fd1ae024174cdbbdc55f2c3f529cb.nq.gz
+│   ├── cc2cac0af6327eb4e2e0a747e647a90d40fe0905.nq.gz
+│   ├── cd6e8680907d08603570e9279e0c96ee81c752ef.nq.gz
+│   ├── d0a1fa1482eea82e19510e7920cbe3a03e41f691.nq.gz
+│   ├── d248a17dcd4816ba3018f8ece40b8080c278dd21.nq.gz
+│   ├── d7ae3c11d20ce9bbaab7f7ebf270da11f892dec8.nq.gz
+│   ├── d8ac04704ac759d418b796f30ee121e7daf0657d.nq.gz
+│   ├── ea73513795127615d27de96defcdca7a76cedb75.nq.gz
+│   ├── eccd4f18f2d8d5efc0ee464552a216cf166d703a.nq.gz
+│   └── fd4b99fac9ff5dd45a0c8c9b5bcdec9ad6585717.nq.gz
+├── branch
+│   └── branch.nq.gz
+├── commit
+│   └── commit.nq.gz
+├── filetree
+│   └── caf0ff21e96170472ebc2c471c92a0f66a11916c.nq.gz
+├── issue
+│   └── issue.nq.gz
+├── pr
+│   └── pr.nq.gz
+└── tag
+    └── tag.nq.gz
+
+13 directories, 63 files
+```
+
+| Directory | What it contains |
+|-----------|-----------------|
+| `blob/` | Per-file AST graphs, content-addressed by git blob SHA. Each file in the source repo gets its own graph. |
+| `aggregate/ast/` | Combined AST graph per parsed commit. Merges all blob graphs for a snapshot of the entire codebase at that point. |
+| `aggregate/lsp/` | Language Server Protocol enrichment: resolved symbols, definitions, references, and type information. |
+| `aggregate/dataflow/` | Interprocedural data flow edges between functions and modules. |
+| `aggregate/repolex/` | Combined graph (AST + LSP + dataflow) per commit. |
+| `commit/` | Git commit metadata (author, date, message, parent links). |
+| `branch/` | Branch metadata. |
+| `tag/` | Tag metadata. |
+| `filetree/` | File tree snapshots per commit (which files existed and their blob SHAs). |
+| `audit/` | Code architecture and graph audit reports per commit. |
+
+## Source repository
+
+[scverse/repo-health](https://github.com/scverse/repo-health)
+
+---
+*Parsed on 2026-10-21 by [repolex](https://repolex.ai)*
